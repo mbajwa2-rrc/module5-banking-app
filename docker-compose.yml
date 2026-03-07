@@ -1,0 +1,37 @@
+services:
+  mongo:
+    image: mongo:6
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./banking-backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5090"
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./studentportfolio
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  mongo_data:

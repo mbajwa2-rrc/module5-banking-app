@@ -10,7 +10,7 @@ services:
       context: ./banking-backend
       dockerfile: Dockerfile
     ports:
-      - "5000:5090"
+      - "5090:5090"
     depends_on:
       - mongo
 
@@ -19,7 +19,7 @@ services:
       context: ./studentportfolio
       dockerfile: Dockerfile
     ports:
-      - "3001:80"
+      - "3005:80"
     depends_on:
       - backend
 

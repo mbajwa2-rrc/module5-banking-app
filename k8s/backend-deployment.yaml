@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: mbajwa2/module5-backend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5090
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongo:27017/bank_app

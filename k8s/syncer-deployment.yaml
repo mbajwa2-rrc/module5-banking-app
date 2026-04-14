@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: syncer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: syncer
+  template:
+    metadata:
+      labels:
+        app: syncer
+    spec:
+      containers:
+        - name: syncer
+          image: busybox
+          command: ["sh", "-c", "while true; do echo syncing; sleep 30; done"]

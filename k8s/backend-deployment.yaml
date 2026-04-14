@@ -15,9 +15,9 @@ spec:
       containers:
         - name: backend
 <<<<<<< HEAD
-          image: mbajwa2/module6-backend:9e907f65d61a578d695ac066b46e0a1bd140d9c9
+          image: mbajwa2/module6-backend:e52719e76a96a86f1eae775d0f134ded0d835b0b
 =======
-          image: mbajwa2/module6-backend:9e907f65d61a578d695ac066b46e0a1bd140d9c9
+          image: mbajwa2/module6-backend:e52719e76a96a86f1eae775d0f134ded0d835b0b
 >>>>>>> 8efae7a69b6ac8deb807815ae88f8994c9e43df3
           imagePullPolicy: Always
           ports:
